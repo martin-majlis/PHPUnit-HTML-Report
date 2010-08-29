@@ -1,2 +1,9 @@
 #!/bin/bash
-saxon-xslt -o $2 $1 phpunit-xml2html.xslt
+XSLT_PROCESSOR=xsltproc
+
+params="";
+if [ x$2 != x ];then 
+	params="-o $params";
+fi;
+
+$XSLT_PROCESSOR $params phpunit-xml2html.xslt $1 
